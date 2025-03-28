@@ -1,23 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 public class Cube : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private float _spawnChanсe = 100;
+    private float _chanceMultiplier = 0.5f;
+
+    private Renderer _renderer;
+    private Rigidbody _rigidbody;
+
+    public Renderer Renderer => _renderer;
+    public Rigidbody Rigidbody => _rigidbody;
+
+    private void Awake()
     {
-        
+        _renderer = GetComponent<Renderer>();
+        _rigidbody = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public float SpawnChanсe => _spawnChanсe;
+
+    public Action<Cube> Clicked;
+    public void Click()
     {
-        
+        Clicked?.Invoke(this);
+        Destroy(gameObject);
     }
 
-    public void Show()
+    public void ReduceСhance(float parentSpawnChanсe)
     {
-        Debug.Log("1");
+        _spawnChanсe = parentSpawnChanсe * _chanceMultiplier;
     }
 }

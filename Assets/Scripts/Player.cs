@@ -3,24 +3,19 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
-    [SerializeField] LayerMask _layerMask;
-    private Ray _ray;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private LayerMask _layerMask;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        _ray = _camera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-
-        if (Physics.Raycast(_ray, out hit, Mathf.Infinity, _layerMask))
+        if (Input.GetMouseButtonDown(0))
         {
-            hit.collider.gameObject.GetComponent<Cube>().Show();
-            Destroy(hit.collider.gameObject);
+            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, _layerMask))
+            {
+                hit.collider.gameObject.GetComponent<Cube>().Click();
+            }
         }
     }
 }
