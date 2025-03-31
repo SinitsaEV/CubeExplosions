@@ -9,26 +9,20 @@ public class Cube : MonoBehaviour
     private Renderer _renderer;
     private Rigidbody _rigidbody;
 
+    public Action<Cube> Clicked;
+
     public Renderer Renderer => _renderer;
     public Rigidbody Rigidbody => _rigidbody;
+    public float SpawnChanсe => _spawnChanсe;
+
+    public void ReduceСhance(float parentSpawnChanсe)
+    {
+        _spawnChanсe = parentSpawnChanсe * _chanceMultiplier;
+    }
 
     private void Awake()
     {
         _renderer = GetComponent<Renderer>();
         _rigidbody = GetComponent<Rigidbody>();
-    }
-
-    public float SpawnChanсe => _spawnChanсe;
-
-    public Action<Cube> Clicked;
-    public void Click()
-    {
-        Clicked?.Invoke(this);
-        Destroy(gameObject);
-    }
-
-    public void ReduceСhance(float parentSpawnChanсe)
-    {
-        _spawnChanсe = parentSpawnChanсe * _chanceMultiplier;
     }
 }

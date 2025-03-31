@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class ClickHandler : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
     [SerializeField] private LayerMask _layerMask;
+
+    public Action<RaycastHit> Clicked;
 
     private void Update()
     {
@@ -14,7 +17,7 @@ public class Player : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, _layerMask))
             {
-                hit.collider.gameObject.GetComponent<Cube>().Click();
+                Clicked?.Invoke(hit);
             }
         }
     }
