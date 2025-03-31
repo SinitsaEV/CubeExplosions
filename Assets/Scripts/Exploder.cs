@@ -1,17 +1,25 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Exploder : MonoBehaviour
 {
-    [SerializeField] private float _explosionForce = 50f;
-    [SerializeField] private float _explosionRadius = 5f;
+    [SerializeField] private float _baseExplosionForce = 5f;
+    [SerializeField] private float _baseExplosionRadius = 2f;
     [SerializeField] private float _upwardModifier = 1f;
 
-    public void ExplodeCubes(List<Cube> cubes, Vector3 centerPosition)
+    public void ExplodeCubes(Cube cube)
     {
-        foreach(Cube cube in cubes)
+        float cubeScale = cube.transform.lossyScale.x;
+        float radius = _baseExplosionRadius / cubeScale;
+        float explosionForse = _baseExplosionForce / cubeScale;
+
+        Collider[] colliders = Physics.OverlapSphere(cube.transform.position, radius);
+
+        foreach (Collider collider in colliders)
         {
-            cube.Rigidbody.AddExplosionForce(_explosionForce, centerPosition, _explosionRadius, _upwardModifier, ForceMode.Impulse);
+            if (collider.TryGetComponent(out Rigidbody rigidbody) && cube.Rigidbody != rigidbody)
+            {
+                rigidbody.AddExplosionForce(explosionForse, cube.transform.position, radius, _upwardModifier, ForceMode.Impulse);
+            }
         }
     }
 }

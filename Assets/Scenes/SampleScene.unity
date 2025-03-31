@@ -208,8 +208,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f06e598551f191447afa0d07e62efb04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosionForce: 5
-  _explosionRadius: 5
+  _baseExplosionForce: 5
+  _baseExplosionRadius: 2
   _upwardModifier: 1
 --- !u!4 &248395586
 Transform:
@@ -630,7 +630,7 @@ GameObject:
   - component: {fileID: 869668376}
   - component: {fileID: 869668375}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: CubeClickHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1115,7 +1115,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cube: {fileID: 1232050147461336377, guid: b81fbaa13a7927744aee71aa513f0537, type: 3}
   _colorChanger: {fileID: 298003452}
-  _exploder: {fileID: 248395585}
 --- !u!1 &1743286610
 GameObject:
   m_ObjectHideFlags: 0

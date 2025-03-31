@@ -1,7 +1,6 @@
-using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class CubeClickHandler : MonoBehaviour
 {
     [SerializeField] private Exploder _exploder;
     [SerializeField] private CubeSpawner _cubeSpawner;
@@ -22,8 +21,8 @@ public class GameManager : MonoBehaviour
         if (raycastHit.collider.TryGetComponent(out Cube cube))
         {
             Destroy(cube.gameObject);
-            List<Cube> cubes = _cubeSpawner.SpawnCubes(cube);
-            _exploder.ExplodeCubes(cubes, cube.transform.position);
+            _cubeSpawner.SpawnCubes(cube);
+            _exploder.ExplodeCubes(cube);
         }
     }
 }
