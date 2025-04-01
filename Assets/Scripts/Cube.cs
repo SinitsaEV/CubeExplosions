@@ -15,14 +15,14 @@ public class Cube : MonoBehaviour
     public Rigidbody Rigidbody => _rigidbody;
     public float SpawnChanсe => _spawnChanсe;
 
-    public void ReduceСhance(float parentSpawnChanсe)
-    {
-        _spawnChanсe = parentSpawnChanсe * _chanceMultiplier;
-    }
-
     private void Awake()
     {
         _renderer = GetComponent<Renderer>();
         _rigidbody = GetComponent<Rigidbody>();
+    }
+
+    public void ReduceСhance(float parentSpawnChanсe)
+    {
+        _spawnChanсe = parentSpawnChanсe * _chanceMultiplier;
     }
 }

@@ -10,25 +10,32 @@ public class CubeSpawner : MonoBehaviour
     private int _minSpawnValue = 2;
     private float _maxSpawnChance = 100;
     private float _minSpawnChance = 0;
-   
-    public void SpawnCubes(Cube cube)
+
+    public bool TrySpawnCubes(Cube cube, out List<Cube> newCubes)
     {
-        if (Random.Range(_minSpawnChance,_maxSpawnChance) <= cube.SpawnChanсe)
+        newCubes = new List<Cube>();
+        bool canSpawnCubes = Random.Range(_minSpawnChance, _maxSpawnChance) <= cube.SpawnChanсe;
+
+        if (canSpawnCubes)
         {
             int randomCubeCount = Random.Range(_minSpawnValue, _maxSpawnValue + 1);
-
+            
             for(int i = 0; i < randomCubeCount; i++)
             {
-                CreateCube(cube);
+                newCubes.Add(CreateCube(cube));
             }
         }
+
+        return canSpawnCubes;
     }
 
-    private void CreateCube(Cube cube)
+    private Cube CreateCube(Cube cube)
     {
         Cube newCube = Instantiate(_cube, cube.transform.position, cube.transform.rotation);
         newCube.transform.localScale = cube.transform.localScale / 2;
         newCube.ReduceСhance(cube.SpawnChanсe);
-        newCube.Renderer.material.color = _colorChanger.GetRandomColor();        
+        newCube.Renderer.material.color = _colorChanger.GetRandomColor();  
+        
+        return newCube;
     }
 }

@@ -208,9 +208,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f06e598551f191447afa0d07e62efb04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseExplosionForce: 5
-  _baseExplosionRadius: 2
-  _upwardModifier: 1
+  _baseExplosionForce: 10
+  _baseExplosionRadius: 5
+  _upwardModifier: 2
 --- !u!4 &248395586
 Transform:
   m_ObjectHideFlags: 0
@@ -353,7 +353,7 @@ Transform:
   m_GameObject: {fileID: 599304475}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalPosition: {x: 0, y: 11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -378,7 +378,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 20, y: 20, z: 0}
+  m_Size: {x: 24, y: 24, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &622982973
 PrefabInstance:
@@ -498,7 +498,7 @@ Transform:
   m_GameObject: {fileID: 662402896}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: 10}
+  m_LocalPosition: {x: 0, y: 5, z: 11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -523,7 +523,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 20, y: 10, z: 0}
+  m_Size: {x: 20, y: 10, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
@@ -651,6 +651,10 @@ MonoBehaviour:
   _exploder: {fileID: 248395585}
   _cubeSpawner: {fileID: 1723534194}
   _clickHandler: {fileID: 1660349214}
+  _camera: {fileID: 963194227}
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!4 &869668376
 Transform:
   m_ObjectHideFlags: 0
@@ -784,7 +788,7 @@ Transform:
   m_GameObject: {fileID: 1059028286}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: 5, z: 0}
+  m_LocalPosition: {x: -11, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -809,7 +813,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0, y: 10, z: 20}
+  m_Size: {x: 2, y: 10, z: 24}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1122336507 stripped
 Transform:
@@ -842,7 +846,7 @@ Transform:
   m_GameObject: {fileID: 1424848104}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: -10}
+  m_LocalPosition: {x: 0, y: 5, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -867,7 +871,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 20, y: 10, z: 0}
+  m_Size: {x: 20, y: 10, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1439525001
 GameObject:
@@ -1050,10 +1054,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec6ba9980b872794daee94156eaf0959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 963194227}
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!4 &1660349215
 Transform:
   m_ObjectHideFlags: 0
@@ -1141,7 +1141,7 @@ Transform:
   m_GameObject: {fileID: 1743286610}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 5, z: 0}
+  m_LocalPosition: {x: 11, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1166,7 +1166,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0, y: 10, z: 20}
+  m_Size: {x: 2, y: 10, z: 24}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1864385778
 GameObject:

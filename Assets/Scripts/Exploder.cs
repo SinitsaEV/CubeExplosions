@@ -1,10 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Exploder : MonoBehaviour
 {
-    [SerializeField] private float _baseExplosionForce = 5f;
-    [SerializeField] private float _baseExplosionRadius = 2f;
-    [SerializeField] private float _upwardModifier = 1f;
+    [SerializeField] private float _baseExplosionForce = 50f;
+    [SerializeField] private float _baseExplosionRadius = 5f;
+    [SerializeField] private float _upwardModifier = 2f;
 
     public void ExplodeCubes(Cube cube)
     {
@@ -20,6 +21,14 @@ public class Exploder : MonoBehaviour
             {
                 rigidbody.AddExplosionForce(explosionForse, cube.transform.position, radius, _upwardModifier, ForceMode.Impulse);
             }
+        }
+    }
+
+    public void ExplodeCubes(List<Cube> cubes, Vector3 centerPosition)
+    {
+        foreach (Cube cube in cubes)
+        {
+            cube.Rigidbody.AddExplosionForce(_baseExplosionForce, centerPosition, _baseExplosionRadius, _upwardModifier, ForceMode.Impulse);
         }
     }
 }
